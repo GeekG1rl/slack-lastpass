@@ -1,6 +1,6 @@
 const expect = require('chai').expect
 const LambdaTester = require('lambda-tester')
-const handlerFunction = require('./handler.js').handler
+const handlerFunction = require('./index.js').handler
 
 describe('handler', () => {
   it('logs the event', () => {

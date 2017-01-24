@@ -2,13 +2,14 @@
   "name": "maraskey",
   "version": "1.0.0",
   "description": "Slack integration for LastPass",
-  "main": "handler.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha *.test.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.7.27",
     "babel-core": "^6.21.0",
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
