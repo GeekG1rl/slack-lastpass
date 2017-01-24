@@ -1,15 +1,10 @@
-const winston = require('winston')
-module.exports.hello = (event, context, callback) => {
+exports.handler = (event, context, callback) => {
+  const pass = event.body.split('&').find((section) => section.startsWith('text='))
+  const decodePass = decodeURIComponent(pass.split('=')[1]).replace(/\+/g, ' ')
   const response = {
     statusCode: 200,
-    body: event.body
+    body: decodePass
   }
-  // log the event so you should see in in the slack response
-  const validLog = winston.log('LOG ME', {
-    body: event.body
-  })
 
   callback(null, response)
-
-  validLog
 }
