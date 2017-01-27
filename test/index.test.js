@@ -2,19 +2,19 @@ const expect = require('chai').expect
 const handlerFunction = require('../index.js').handler
 const AWS = require('aws-sdk-mock')
 
-AWS.mock('Lambda', 'invoke', (params, callback) => {
-  console.log(params)
-  if (params.FunctionName === 'konencryptapi_LambdaKeyService') {
-    callback(null, { Payload: JSON.stringify({ id: '16c4f99c-dc89-4dff-aea5-50r90036cc0c',
-      key: '3b0366a2-d62a-415f-b548-b47562949eba',
-      value: 'cdbecfbb-e96e-478d-8eb0-8685196d93b4' }) })
-  } else {
-    callback(null, { Payload: JSON.stringify({ test: 'I\'m a test' }) })
-  }
-})
+// AWS.mock('Lambda', 'invoke', (params, callback) => {
+//   console.log(params)
+//   if (params.FunctionName === 'konencryptapi_LambdaKeyService') {
+//     callback(null, { Payload: JSON.stringify({ id: '16c4f99c-dc89-4dff-aea5-50r90036cc0c',
+//       key: '3b0366a2-d62a-415f-b548-b47562949eba',
+//       value: 'cdbecfbb-e96e-478d-8eb0-8685196d93b4' }) })
+//   } else {
+//     callback(null, { Payload: JSON.stringify({ test: 'I\'m a test' }) })
+//   }
+// })
 
 describe('handler', function () {
-  this.timeout(10000)
+  this.timeout(100000)
   it('logs the event', function (done) {
     const event = {
       test: 'test',
